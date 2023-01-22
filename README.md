@@ -3,10 +3,11 @@ Vultr Kubernetes Engine (VKE) https://www.vultr.com/docs/vultr-kubernetes-engine
 
 ## bootstrap
 ```
+helm repo add argo https://argoproj.github.io/argo-helm
+
 cd ./argocd/argocd/
 helm dependency build
-cd ../..
-cd ./argocd/argocd-apps/
+cd ../../argocd/argocd-apps/
 helm dependency build
 cd ../..
 

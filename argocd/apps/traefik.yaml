@@ -12,6 +12,9 @@ spec:
     repoURL: https://traefik.github.io/charts
     targetRevision: 20.8.0
     chart: traefik
+    helm:
+      valueFiles:
+        - https://raw.githubusercontent.com/BlueNc/vke-fch/main/traefik/values.yaml
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
