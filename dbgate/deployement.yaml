@@ -26,5 +26,5 @@ spec:
             cpu: "100m"
       volumes:
       - name: dbgate-data
-        persistentVolumeClaim:
-          claimName: dbgate-data-pvc
+        emptyDir:
+          sizeLimit: 500Mi
