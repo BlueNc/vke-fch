@@ -23,7 +23,7 @@ extraVars:
     value: Pacific/Noumea
 
 persistence:
-  enabled: true
+  enabled: false
   storageClass: local-path
   size: 2Gi
 
