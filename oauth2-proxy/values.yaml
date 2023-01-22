@@ -1,0 +1,30 @@
+oauth2-proxy:
+  config:
+    existingSecret: oauth2-proxy-secret
+
+    configFile: |-
+      reverse_proxy = true
+      email_domains = [ "*" ]
+      upstreams = [ "static://202" ]
+      provider = "github"
+      scope = "user:email"
+      github_users = "florentchevalier"
+      cookie_domains = ".bluenc.ovh"
+      redirect_url = "https://auth.bluenc.ovh/oauth2/callback"
+      whitelist_domains = "*.bluenc.ovh"
+
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    hosts:
+      - auth.bluenc.ovh
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-staging"
+      traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-auth-headers@kubernetescrd
+    tls:
+      - hosts:
+          - auth.bluenc.ovh
+        secretName: auth-bluenc-ovh
+
+  redis:
+    enabled: false

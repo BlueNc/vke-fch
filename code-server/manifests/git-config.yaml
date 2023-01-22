@@ -1,0 +1,11 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: git-config
+data:
+  .gitconfig: |-
+    [user]
+        email = florent.chevalier.nc@gmail.com
+        name = Florent Chevalier
+    [pull]
+        ff = only

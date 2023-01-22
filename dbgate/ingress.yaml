@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dbgate
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: dbgate.bluenc.ovh
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: dbgate
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - dbgate.bluenc.ovh
+    secretName: dbgate-bluenc-ovh

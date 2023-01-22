@@ -1,0 +1,26 @@
+global:
+  image:
+    repository: argoproj/argocd
+
+argo-cd:
+  fullnameOverride: "argocd"
+  namespace: argocd
+  crds:
+    install: true
+    keep: false
+  dex:
+    enabled: false
+  server:
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      hosts:
+        - argo-cd.bluenc.ovh
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-staging"
+        # TODO traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
+      tls:
+        - hosts:
+            - argo-cd.bluenc.ovh
+          secretName: argo-cd.bluenc.ovh
+      https: false

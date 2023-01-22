@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbgate
+spec:
+  selector:
+    matchLabels:
+      app: dbgate
+  template:
+    metadata:
+      labels:
+        app: dbgate
+    spec:
+      containers:
+      - name: dbgate
+        image: dbgate/dbgate:5.2.0-alpine
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 3000
+        volumeMounts:
+          - name: dbgate-data
+            mountPath: /root/.dbgate
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
+      volumes:
+      - name: dbgate-data
+        persistentVolumeClaim:
+          claimName: dbgate-data-pvc

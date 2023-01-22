@@ -1,0 +1,63 @@
+image:
+  repository: codercom/code-server
+  tag: '4.9.1'
+ingress:
+  enabled: true
+  ingressClassName: traefik
+  hosts:
+    - host: code.bluenc.ovh
+      paths:
+        - /
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
+  tls:
+    - hosts:
+        - code.bluenc.ovh
+      secretName: code-bluenc-ovh
+
+extraVars:
+  - name: EXTENSIONS
+    value: ms-kubernetes-tools.vscode-kubernetes-tools EditorConfig.EditorConfig
+  - name: TZ
+    value: Pacific/Noumea
+
+persistence:
+  enabled: true
+  storageClass: local-path
+  size: 2Gi
+
+extraConfigmapMounts:
+  - name: code-server-config
+    mountPath: /home/coder/.config/code-server
+    configMap: code-server-config
+    readOnly: true
+  - name: code-server-settings
+    mountPath: /home/coder/.local/share/code-server/User/settings.json
+    configMap: code-server-settings
+    subPath: settings.json
+    readOnly: false
+  - name: code-server-keybindings
+    mountPath: /home/coder/.local/share/code-server/User/keybindings.json
+    configMap: code-server-keybindings
+    subPath: keybindings.json
+    readOnly: false
+  - name: git-config
+    mountPath: /home/coder/.gitconfig
+    configMap: git-config
+    subPath: .gitconfig
+    readOnly: false
+    
+extraSecretMounts:
+  - name: ssh-key-pair-id-rsa
+    mountPath: /home/coder/.ssh/id_rsa
+    secretName: ssh-key-pair-generator
+    subPath: ssh-privatekey
+    readOnly: true
+    defaultMode: 0400
+  - name: ssh-key-pair-id-rsa-pub
+    mountPath: /home/coder/.ssh/id_rsa.pub
+    secretName: ssh-key-pair-generator
+    subPath: ssh-publickey
+    readOnly: true
+

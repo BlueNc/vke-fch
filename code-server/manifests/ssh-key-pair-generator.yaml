@@ -1,0 +1,7 @@
+apiVersion: "secretgenerator.mittwald.de/v1alpha1"
+kind: "SSHKeyPair"
+metadata:
+  name: "ssh-key-pair-generator"
+spec:
+  length: "4096"
+  forceRegenerate: false
