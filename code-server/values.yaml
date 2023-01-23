@@ -1,6 +1,6 @@
 image:
-  repository: codercom/code-server
-  tag: '4.9.1'
+  repository: ghcr.io/bluenc/code-blue
+  tag: 'latest'
 ingress:
   enabled: true
   ingressClassName: traefik
