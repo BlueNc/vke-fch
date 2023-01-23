@@ -5,6 +5,9 @@ global:
 argo-cd:
   fullnameOverride: "argocd"
   namespace: argocd
+  configs:
+    params:
+      server.insecure: true
   crds:
     install: true
     keep: false
