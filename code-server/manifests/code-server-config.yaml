@@ -5,6 +5,5 @@ metadata:
 data:
   config.yaml: |-
     bind-addr: 127.0.0.1:8080
-    auth: password
-    hashed-password: 0f18a0cceea2472c69b1a3efdf267d8ad8101cca5a34c750e63fbeefb746c55c
+    auth: none
     cert: false
