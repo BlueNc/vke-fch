@@ -19,7 +19,7 @@ oauth2-proxy:
     hosts:
       - auth.bluenc.ovh
     annotations:
-      cert-manager.io/cluster-issuer: "letsencrypt"
+      cert-manager.io/cluster-issuer: "letsencrypt-staging"
       traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-auth-headers@kubernetescrd
     tls:
       - hosts:
