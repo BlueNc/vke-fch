@@ -14,3 +14,4 @@ ingress:
 mongodb:
   auth:
     password: monmotdepasse
+    rootPassword: monmotdepasse
