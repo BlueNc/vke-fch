@@ -10,3 +10,7 @@ ingress:
     - hosts:
         - chat.bluenc.ovh
       secretName: chat-bluenc-ovh
+
+mongodb:
+  auth:
+    password: monmotdepasse
