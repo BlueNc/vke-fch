@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rocket-chat
+  namespace: argocd
+spec:
+  destination:
+    namespace: rocket-chat
+    server: https://kubernetes.default.svc
+  project: argocd
+  source:
+    repoURL: https://rocketchat.github.io/helm-charts
+    targetRevision: 5.3.2
+    chart: rocketchat
+    helm:
+      valueFiles:
+        - https://raw.githubusercontent.com/BlueNc/vke-fch/main/rocket/values.yaml
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
