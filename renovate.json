@@ -11,5 +11,16 @@
       "code-server/manifests/.+\\.yaml$",
       "dbgate/.+\\.yaml$"
     ]
-  }
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "automerge": true
+    }
+  ]
 }
