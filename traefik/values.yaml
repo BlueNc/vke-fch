@@ -1,3 +1,4 @@
-# service:
-#   externalIPs:
-#     - 139.180.163.215
+providers:
+  kubernetesIngress:
+    publishedService:
+      enabled: true
