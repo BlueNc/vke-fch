@@ -12,6 +12,8 @@
       "dbgate/.+\\.yaml$"
     ]
   },
+  "platformAutomerge": true,
+  "automergeType": "pr",
   "packageRules": [
     {
       "matchUpdateTypes": [
