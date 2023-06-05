@@ -10,10 +10,9 @@
       "cert-manager-config/.+\\.yaml$",
       "code-server/manifests/.+\\.yaml$",
       "dbgate/.+\\.yaml$"
-    ]
+    ],
+    "automerge": true
   },
-  "platformAutomerge": true,
-  "automergeType": "pr",
   "packageRules": [
     {
       "matchUpdateTypes": [
