@@ -30,9 +30,9 @@ spec:
           name: search
           volumeMounts:
             - mountPath: /etc/searxng
-              name: khoj-search
+              name: khoj
       restartPolicy: Always
       volumes:
-        - name: khoj-search
+        - name: khoj
           persistentVolumeClaim:
-            claimName: khoj-search
+            claimName: khoj
