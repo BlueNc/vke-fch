@@ -7,7 +7,7 @@ oauth2-proxy:
       email_domains = [ "*" ]
       upstreams = [ "static://202" ]
       provider = "github"
-      scope = "user:email"
+      scope = "read:org user:email"
       github_users = "BlueNc"
       cookie_domains = ".codeblue.ovh"
       redirect_url = "https://auth.codeblue.ovh/oauth2/callback"
