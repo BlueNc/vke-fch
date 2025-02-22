@@ -6,4 +6,4 @@ metadata:
 spec:
   redirectRegex:
     regex: ^https://(.*)/oauth2/start
-    replacement: https://auth.bluenc.ovh/oauth2/start
+    replacement: https://auth.codeblue.ovh/oauth2/start

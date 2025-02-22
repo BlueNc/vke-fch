@@ -5,7 +5,7 @@ ingress:
   enabled: true
   ingressClassName: traefik
   hosts:
-    - host: code.bluenc.ovh
+    - host: code.codeblue.ovh
       paths:
         - /
   annotations:
@@ -13,8 +13,8 @@ ingress:
     traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
   tls:
     - hosts:
-        - code.bluenc.ovh
-      secretName: code-bluenc-ovh
+        - code.codeblue.ovh
+      secretName: code-codeblue-ovh
 
 extraVars:
   - name: EXTENSIONS

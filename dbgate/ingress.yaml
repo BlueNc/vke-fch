@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: dbgate.bluenc.ovh
+  - host: dbgate.codeblue.ovh
     http:
       paths:
       - path: /
@@ -20,5 +20,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - dbgate.bluenc.ovh
-    secretName: dbgate-bluenc-ovh
+    - dbgate.codeblue.ovh
+    secretName: dbgate-codeblue-ovh

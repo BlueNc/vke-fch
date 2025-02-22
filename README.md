@@ -16,7 +16,7 @@ helm install argocd-apps ./argocd/argocd-apps --namespace argocd
 ```
 
 ## Argo-cd
-* url : https://argo-cd.bluenc.ovh/
+* url : https://argo-cd.codeblue.ovh/
 * user : admin
 * password :
 

@@ -8,8 +8,8 @@ ingress:
   path: /
   tls:
     - hosts:
-        - chat.bluenc.ovh
-      secretName: chat-bluenc-ovh
+        - chat.codeblue.ovh
+      secretName: chat-codeblue-ovh
 
 mongodb:
   auth:

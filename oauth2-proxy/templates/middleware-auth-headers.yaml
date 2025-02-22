@@ -10,7 +10,7 @@ spec:
     browserXssFilter: true
     contentTypeNosniff: true
     forceSTSHeader: true
-    sslHost: bluenc.ovh
+    sslHost: codeblue.ovh
     stsIncludeSubdomains: true
     stsPreload: true
     frameDeny: true

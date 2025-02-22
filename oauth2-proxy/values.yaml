@@ -9,22 +9,22 @@ oauth2-proxy:
       provider = "github"
       scope = "user:email"
       github_users = "BlueNc"
-      cookie_domains = ".bluenc.ovh"
-      redirect_url = "https://auth.bluenc.ovh/oauth2/callback"
-      whitelist_domains = "*.bluenc.ovh"
+      cookie_domains = ".codeblue.ovh"
+      redirect_url = "https://auth.codeblue.ovh/oauth2/callback"
+      whitelist_domains = "*.codeblue.ovh"
 
   ingress:
     enabled: true
     ingressClassName: traefik
     hosts:
-      - auth.bluenc.ovh
+      - auth.codeblue.ovh
     annotations:
       cert-manager.io/cluster-issuer: "letsencrypt"
       traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-auth-headers@kubernetescrd
     tls:
       - hosts:
-          - auth.bluenc.ovh
-        secretName: auth-bluenc-ovh
+          - auth.codeblue.ovh
+        secretName: auth-codeblue-ovh
 
   redis:
     enabled: false
