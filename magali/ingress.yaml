@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: magali
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt"
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: magali.codeblue.ovh
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: magali
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - magali.codeblue.ovh
+    secretName: magali-codeblue-ovh

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magali
+spec:
+  selector:
+    matchLabels:
+      app: magali
+  template:
+    metadata:
+      labels:
+        app: magali
+    spec:
+      containers:
+      - name: magali
+        image: nginx:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - name: config-vol
+            mountPath: /etc/nginx/
+      volumes:
+        - name: config-vol
+          configMap:
+            name: nginx-config
+            items:
+              - key: nginx.conf
+                path: nginx.conf
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |
+    events {
+    }
+    http {
+      server {
+          listen 80;
+          location / {
+              return 200 "Coucou mon chat !!! <3";
+          }
+      }
+    }
