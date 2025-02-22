@@ -22,4 +22,4 @@ argo-cd:
       tls: true
       https: false
   certificate:
-    enabled: true
+    enabled: false
