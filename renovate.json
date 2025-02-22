@@ -9,7 +9,8 @@
       "buildkit/.+\\.yaml$",
       "cert-manager-config/.+\\.yaml$",
       "code-server/manifests/.+\\.yaml$",
-      "dbgate/.+\\.yaml$"
+      "dbgate/.+\\.yaml$",
+      "khoj/.+\\.yaml$"
     ],
     "automerge": true
   },
