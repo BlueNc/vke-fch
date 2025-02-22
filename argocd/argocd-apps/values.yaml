@@ -1,6 +1,6 @@
 argocd-apps:
   applications:
-    - name: apps-of-apps
+    apps-of-apps:
       namespace: argocd
       additionalAnnotations:
         "helm.sh/resource-policy": keep
@@ -19,7 +19,7 @@ argocd-apps:
           selfHeal: true
           prune: true
   projects:
-    - name: argocd
+    argocd:
       namespace: argocd
       description: Argocd Project
       sourceRepos:
