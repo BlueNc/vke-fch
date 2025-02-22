@@ -16,7 +16,7 @@ spec:
           service:
             name: magali
             port:
-              number: 80
+              number: 5000
   tls:
   - hosts:
     - magali.codeblue.ovh

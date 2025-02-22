@@ -6,5 +6,5 @@ spec:
   selector:
     app: magali
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 5000
+    targetPort: 5000

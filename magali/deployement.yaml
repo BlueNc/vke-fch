@@ -13,34 +13,7 @@ spec:
     spec:
       containers:
       - name: magali
-        image: nginx:latest
+        image: benbusby/whoogle-search
         imagePullPolicy: Always
         ports:
-          - containerPort: 80
-        volumeMounts:
-          - name: config-vol
-            mountPath: /etc/nginx/
-      volumes:
-        - name: config-vol
-          configMap:
-            name: nginx-config
-            items:
-              - key: nginx.conf
-                path: nginx.conf
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: nginx-config
-data:
-  nginx.conf: |
-    events {
-    }
-    http {
-      server {
-          listen 80;
-          location / {
-              return 200 "Coucou mon chat !!! <3";
-          }
-      }
-    }
+          - containerPort: 5000
