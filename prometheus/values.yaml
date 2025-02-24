@@ -1,0 +1,13 @@
+grafana:
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    hosts:
+      - grafana.codeblue.ovh
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt"
+      traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-auth-headers@kubernetescrd
+    tls:
+      - hosts:
+          - grafana.codeblue.ovh
+        secretName: grafana-codeblue-ovh
