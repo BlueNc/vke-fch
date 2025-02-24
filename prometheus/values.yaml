@@ -11,3 +11,7 @@ grafana:
       - hosts:
           - grafana.codeblue.ovh
         secretName: grafana-codeblue-ovh
+
+kubeApiServer:
+  tlsConfig:
+    insecureSkipVerify: true
