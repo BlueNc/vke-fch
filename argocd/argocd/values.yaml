@@ -21,5 +21,40 @@ argo-cd:
         traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
       tls: true
       https: false
+    resources:
+      requests:
+        cpu: 100m
+        memory: 100Mi
+      limits:
+        cpu: 1
+        memory: 1Gi
+
+    repoServer:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 100Mi
+      limits:
+        cpu: 1
+        memory: 1Gi
+  applicationSet:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 100Mi
+      limits:
+        cpu: 1
+        memory: 1Gi
+  notifications:
+    enabled: false
+  controller:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 100Mi
+      limits:
+        cpu: 1
+        memory: 1Gi
   certificate:
     enabled: false
+
