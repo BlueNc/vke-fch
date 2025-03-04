@@ -35,7 +35,7 @@ spec:
             - name: KHOJ_ADMIN_PASSWORD
               value: password
             - name: KHOJ_DEBUG
-              value: "False"
+              value: "True"
             - name: KHOJ_DJANGO_SECRET_KEY
               value: secret
             - name: KHOJ_SEARXNG_URL
