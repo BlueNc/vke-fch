@@ -26,14 +26,15 @@ spec:
         -
           command:
             - gunicorn
-            - --workers 1
+            - --workers
+            - "1"
             - -c
             - gunicorn-config.py
             - src.khoj.main:app
-          args:
-            - --timeout 300
-            - --workers 1
-            - --threads 1
+          # args:
+          #   - --timeout 300
+          #   - --workers 1
+          #   - --threads 1
           env:
             - name: KHOJ_ADMIN_EMAIL
               value: username@example.com
