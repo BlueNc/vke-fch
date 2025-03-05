@@ -28,6 +28,7 @@ spec:
             - gunicorn
             - -c
             - gunicorn-config.py
+            - --workers 1
             - src.khoj.main:app
           args:
             - --timeout 300
