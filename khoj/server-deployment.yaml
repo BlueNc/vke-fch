@@ -54,7 +54,7 @@ spec:
               value: postgres
             - name: KHOJ_DOMAIN
               value: khoj.codeblue.ovh
-          image: ghcr.io/khoj-ai/khoj:latest
+          image: ghcr.io/khoj-ai/khoj-cloud:latest
           name: server
           ports:
             - containerPort: 42110
