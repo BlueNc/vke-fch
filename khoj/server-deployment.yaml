@@ -24,10 +24,13 @@ spec:
     spec:
       containers:
         -
+          command:
+            - "gunicorn"
           args:
             - --timeout 300
             - --workers 1
             - --threads 1
+            - src.khoj.main:app
           env:
             - name: KHOJ_ADMIN_EMAIL
               value: username@example.com
