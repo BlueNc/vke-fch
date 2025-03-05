@@ -55,6 +55,13 @@ spec:
               value: postgres
             - name: KHOJ_DOMAIN
               value: khoj.codeblue.ovh
+            - name: GOOGLE_CLIENT_ID
+              value: 682230729783-hpd42rotcjs6pph9i407uepst25t2hed.apps.googleusercontent.com
+            - name: GOOGLE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: google-client
+                  key: client-secret
           image: ghcr.io/khoj-ai/khoj-cloud:latest
           name: server
           ports:
