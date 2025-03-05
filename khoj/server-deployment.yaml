@@ -25,7 +25,9 @@ spec:
       containers:
         -
           args:
-            - --timeout 120
+            - --timeout 300
+            - --workers 1
+            - --threads 1
           env:
             - name: KHOJ_ADMIN_EMAIL
               value: username@example.com
