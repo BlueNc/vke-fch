@@ -10,7 +10,7 @@ spec:
   project: argocd
   source:
     repoURL: https://traefik.github.io/charts
-    targetRevision: 34.5.0
+    targetRevision: 35.0.0
     chart: traefik
     helm:
       valueFiles:
